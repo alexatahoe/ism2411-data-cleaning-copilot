@@ -1,0 +1,5 @@
+Copilot generated the load_data() function when I typed load_data it finished the rest of the function. I then made slight edits afterward. It also helped with the standardize_column_names(), clean_text_fields, and df.dropna(). For most of these Copilot would finish the line or make suggestions for the function. This is very helpful because it allows one to code quicker and notice issues quicker.  
+
+I had to make modifications to the proper column names because copilot automatically assumes names like quantity that needed to be adjusted. Price and quantity were originally saved as strings so that needed to be converted to numeric types. I also had to add prints that fixed column names. 
+
+Overall I learned a lot about data cleaning and that despite copilots help it can make simple errors and stil requires a lot of help. It does help signifigantly though to help you code faster and find errors for you. I also learned how to get rid of invalid rows and ensure all column names are the same. 
