@@ -2,7 +2,7 @@
 
 This project is to demonstrate data cleaning with Python and Github Copilot. 
 
-## Project Structure 
+## Project Overview 
 
 ism2411 -data-cleaning-copilot/
     data/
@@ -16,9 +16,10 @@ ism2411 -data-cleaning-copilot/
     Reflection.md # Reflection on Copilot and what I learned
 
 ## Cleaning Steps 
-Standardized column names 
-Converted price and quantity names 
-Handle missing values 
+- Standardized column names 
+- Converted price and quantity names 
+- Handle missing values 
+- Remove rows withh invalid negitive values 
 
 ## How to Run 
 1. Install Python
