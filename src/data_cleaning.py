@@ -1,20 +1,21 @@
 """
 data_cleaning.py
 
-This script loads a messy sales dataset and applies sevral cleaning steps. This shows Python data cleaning and 
-usage of GitHub Copilot.
+This script loads a messy sales dataset and applies several cleaning steps. This shows Python data cleaning and 
+usage of GitHub Copilot. 
+It shows Python data cleaning and Copilot usage.
 """
 import pandas as pd 
 
 # Function: Load_data
-# This function should open the raw CVS file and return a DataFrame. 
+# This function should open the raw CSV file and return a DataFrame. 
 def load_data(file_path: str) -> pd.DataFrame:
     df = pd.read_csv(file_path)
     print("Columns detected in file:", df.columns.tolist())
     return df
 
-# Function: Clean_data
-# This function should clean the data by removing duplicates, handling missing values, and correcting data types.
+# Function: Standardize column names 
+# This function should clean the data by removing leading/trailing spaces, converting to lowercase, and replacing spaces with underscores.
 def standardize_column_names(df: pd.DataFrame) -> pd.DataFrame:
     df.columns = (
         df.columns
@@ -24,6 +25,7 @@ def standardize_column_names(df: pd.DataFrame) -> pd.DataFrame:
     )
     return df
 
+#Convert text fields to strings and fix extra spaxes from string columns 
 def clean_text_fields(df: pd.DataFrame) -> pd.DataFrame:
     if "prodname" in df.columns:
         df["prodname"] = df["prodname"].astype(str).str.strip()
@@ -32,16 +34,19 @@ def clean_text_fields(df: pd.DataFrame) -> pd.DataFrame:
     return df
 
 #Handle missing values 
+#Drop rows with missing values 
 def handle_missing_values(df: pd.DataFrame) -> pd.DataFrame:
     df = df.dropna(subset=["price", "qty"])
     return df
 
-# Remove rows with negitive values
+# Remove rows with negative values
+# Make negative values invalid 
 def remove_invalid_rows(df: pd.DataFrame) -> pd.DataFrame:
     df = df[(df["price"] >= 0) & (df["qty"] >= 0)]
     return df
 
 if __name__ == "__main__":
+    # Load raw data, and define paths 
     raw_path = "data/raw/sales_data_raw.csv"
     cleaned_path = "data/processed/sales_data_clean.csv"
 
